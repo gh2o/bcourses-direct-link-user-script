@@ -5,7 +5,7 @@
 // @namespace   https://thegavinli.com
 // @description Bypasses the built-in file viewer in bCourses.
 // @include     /^https://bcourses\.berkeley\.edu/courses/\d+(/((files|modules)/?)?)?($|\?)/
-// @version     1.0.1
+// @version     1.0.2
 // @grant       none
 // ==/UserScript==
 
@@ -67,7 +67,7 @@ if (pathName.endsWith("/files")) {
       var target = evt.target;
 
       while (target.nodeName !== 'A') {
-        if (target === dir) return;
+        if (!target || target === dir) return;
         target = target.parentNode;
       }
       if (target.href.match(/\/files\/\d+\/download\b/)) {

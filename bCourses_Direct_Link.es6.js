@@ -3,7 +3,7 @@
 // @namespace   https://thegavinli.com
 // @description Bypasses the built-in file viewer in bCourses.
 // @include     /^https://bcourses\.berkeley\.edu/courses/\d+(/((files|modules)/?)?)?($|\?)/
-// @version     1.0.1
+// @version     1.0.2
 // @grant       none
 // ==/UserScript==
 
@@ -65,7 +65,7 @@ if (pathName.endsWith("/files")) {
     dir.addEventListener("click", evt => {
       var {target} = evt;
       while (target.nodeName !== 'A') {
-        if (target === dir)
+        if (!target || target === dir)
           return;
         target = target.parentNode;
       }
