@@ -32,7 +32,7 @@ pathName = pathName.substring(0, pathName.length - pathName.endsWith('/'));
 
 if (document.getElementById('context_modules')) {
   processModuleLink("Attachment", (node, response) => {
-    var link = response.match(/<a href="(\/courses\/\d+\/files\/\d+\/download)">/)[1];
+    var link = (response.match(/<a href="(\/courses\/\d+\/files\/\d+\/download)">/) || [])[1];
     if (link) {
       node.download = true;
       node.href = link;
@@ -45,7 +45,7 @@ if (document.getElementById('context_modules')) {
     var b = response.indexOf('</li>', a);
     if (b < 0)
       return;
-    var link = response.substring(a, b).match(/<a href="([^"<>]*)"/)[1];
+    var link = (response.substring(a, b).match(/<a href="([^"<>]*)"/) || [])[1];
     if (link) {
       node.target = "_blank";
       node.href = unescapeHTML(link);
