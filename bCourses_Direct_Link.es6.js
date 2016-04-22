@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name        bCourses Direct Link
 // @namespace   https://thegavinli.com
+// @description Bypasses the built-in file viewer in bCourses.
 // @include     /^https://bcourses\.berkeley\.edu/courses/\d+(/((files|modules)/?)?)?($|\?)/
 // @version     1
 // @grant       none
